@@ -16,7 +16,7 @@ class ScpDbController private constructor(){
         var statement: Statement? = null
         try {
             Class.forName("org.sqlite.JDBC")
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/cuile/Desktop/scp/scp.db")
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/cuile/Desktop/scp/spider.db")
 
             statement = connection.createStatement()
             val createTableScps = "CREATE TABLE IF NOT EXISTS SCPS (" +
@@ -44,7 +44,7 @@ class ScpDbController private constructor(){
         val insertSql = "INSERT INTO SCPS (title, img, content) VALUES (?, ?, ?);"
         try {
             Class.forName("org.sqlite.JDBC")
-            connection = DriverManager.getConnection("jdbc:sqlite:/home/cuile/Desktop/scp/scp.db")
+            connection = DriverManager.getConnection("jdbc:sqlite:/home/cuile/Desktop/scp/spider.db")
 
             statement = connection.prepareStatement(insertSql)
 //            val insertScpSql = "INSERT INTO SCPS (title, img, content) " +

@@ -1,5 +1,6 @@
 package com.example.demo.view
 
+import com.example.demo.util.quhua.QuhuaPageProcessor
 import com.example.demo.util.scp.ScpPageProcessor
 import com.example.demo.util.xiaowei.XiaoweiPageProcessor
 import javafx.scene.control.Label
@@ -10,6 +11,7 @@ class MainView : View("Hello TornadoFX") {
 
     private val scpPageProcessor: ScpPageProcessor by lazy { ScpPageProcessor() }
     private val xwPageProcessor: XiaoweiPageProcessor by lazy { XiaoweiPageProcessor() }
+    private val quhuaPageProcessor: QuhuaPageProcessor by lazy { QuhuaPageProcessor() }
 
     companion object {
         private lateinit var numLabel: Label
@@ -35,6 +37,14 @@ class MainView : View("Hello TornadoFX") {
 
         button("XWStop").action {
             xwPageProcessor.spider.stop()
+        }
+
+        button("QuhuaStart").action {
+            quhuaPageProcessor.spider.start()
+        }
+
+        button("QuhuaStop").action {
+            quhuaPageProcessor.spider.stop()
         }
 
         numLabel = label("0")
